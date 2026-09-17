@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dulce — Repostería de precisión</title>
+    <title>Dulce — Catálogo de dulces mexicanos</title>
     <meta
       name="description"
-      content="Artesanía dulce, diseñada con precisión. Cacao de origen, mantequilla de pasto, frutas de temporada."
+      content="Catálogo curado de dulces mexicanos tradicionales, picantes, chocolatosos, ácidos y gomas. 40 piezas, 5 paletas, 1 sola lógica."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,46 +14,76 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@400;500&family=Fira+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/category.css" />
+    <link rel="stylesheet" href="/styles/category-shapes.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Saltar al contenido</a>
 
+    <!-- SVG sprite: caramelo envolvente, color heredado via currentColor -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0"
+      height="0"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+      aria-hidden="true"
+    >
+      <symbol id="brand-mark" viewBox="0 0 200 200">
+        <defs>
+          <mask id="candyStripeMask">
+            <rect width="200" height="200" fill="white" />
+            <path d="M 82 65 L 74 135" stroke="black" stroke-width="7" stroke-linecap="round" />
+            <path d="M 100 62 L 92 138" stroke="black" stroke-width="7" stroke-linecap="round" />
+            <path d="M 118 65 L 110 135" stroke="black" stroke-width="7" stroke-linecap="round" />
+          </mask>
+        </defs>
+
+        <g transform="rotate(-15 100 100)">
+          <g mask="url(#candyStripeMask)">
+            <ellipse cx="100" cy="100" rx="42" ry="32" />
+          </g>
+
+          <path d="M 58 100 C 48 94 32 78 20 74 C 18 92 18 108 20 126 C 32 122 48 106 58 100 Z" />
+          <path
+            class="logo-highlight"
+            d="M 23 79 C 34 92 42 98 52 100"
+            stroke-width="3"
+            stroke-linecap="round"
+            fill="none"
+          />
+
+          <path d="M 142 100 C 152 94 168 78 180 74 C 182 92 182 108 180 126 C 168 122 152 106 142 100 Z" />
+          <path
+            class="logo-highlight"
+            d="M 177 79 C 166 92 158 98 148 100"
+            stroke-width="3"
+            stroke-linecap="round"
+            fill="none"
+          />
+
+          <ellipse cx="58" cy="100" rx="3.5" ry="8" />
+          <ellipse cx="142" cy="100" rx="3.5" ry="8" />
+        </g>
+      </symbol>
+    </svg>
+
     <header class="nav" id="nav">
       <div class="nav__inner">
-        <a class="nav__brand" href="#top" aria-label="Dulce — inicio">
+        <a class="nav__brand" href="/tradicionales" aria-label="Dulce — inicio">
           <span class="nav__logo" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="28" height="28">
-              <defs>
-                <linearGradient id="lg-logo" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#80ee64" />
-                  <stop offset="60%" stop-color="#18b759" />
-                  <stop offset="100%" stop-color="#09af58" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M6 6 L26 6 L26 26 L6 26 Z M6 6 L26 26 M26 6 L6 26"
-                fill="none"
-                stroke="url(#lg-logo)"
-                stroke-width="2.5"
-                stroke-linecap="square"
-              />
-              <circle cx="16" cy="16" r="3" fill="#7fee64" />
+            <svg viewBox="0 0 200 200" width="32" height="32" fill="currentColor">
+              <use href="#brand-mark" />
             </svg>
           </span>
           <span class="nav__wordmark">Dulce</span>
         </a>
 
-        <nav class="nav__links" aria-label="Principal">
-          <a href="#productos">Productos</a>
-          <a href="#proceso">Proceso</a>
-          <a href="#manifiesto">Manifiesto</a>
-          <a href="#menu">Menú</a>
-          <a href="#contacto">Contacto</a>
+        <nav class="nav__links" aria-label="Categorías">
+          <!-- Se hidrata desde /api/categorias -->
         </nav>
 
         <div class="nav__actions">
-          <a class="nav__login" href="#login">Ingresar</a>
           <a class="pill" href="#pedir">
             Pedir ahora
             <span aria-hidden="true">→</span>
@@ -68,466 +98,67 @@
         <div class="hero__inner">
           <span class="eyebrow">Dulce &mdash; est. 2019</span>
           <h1 class="hero__title">
-            <span class="accent">Repostería</span>
-            <span class="primary">de precisión.</span>
+            <span class="accent">40 dulces</span>
+            <span class="primary">de México, una sola lógica.</span>
           </h1>
           <p class="hero__sub">
-            Cada pieza es una pequeña obra de ingeniería. Cacao de origen,
-            mantequilla de pasto, frutas de temporada &mdash; convertidas en
-            arquitecturas comestibles bajo la lógica del relojero.
+            Un catálogo curado en cinco paletas. Tradicionales, picantes,
+            chocolatosos, ácidos y gomas — cada categoría con su propio
+            acento, su propio objeto emblemático.
           </p>
-
-          <div class="hero__ctas">
-            <a class="pill" href="#pedir">
-              Encargar caja
-              <span aria-hidden="true">→</span>
-            </a>
-            <a class="ghost" href="#proceso">Ver proceso</a>
-          </div>
 
           <div class="hero__visual" aria-hidden="true">
             <div class="hero__halo"></div>
-            <div class="hero__cube">
-              <div class="cube">
-                <div class="cube__face cube__face--front"></div>
-                <div class="cube__face cube__face--back"></div>
-                <div class="cube__face cube__face--right"></div>
-                <div class="cube__face cube__face--left"></div>
-                <div class="cube__face cube__face--top"></div>
-                <div class="cube__face cube__face--bottom"></div>
-              </div>
-            </div>
-            <div class="hero__caption">
-              <span class="dot"></span>
-              batch #0247 &middot; horneando
-            </div>
-          </div>
-
-          <ul class="hero__meta" role="list">
-            <li>
-              <span class="meta__num">12</span>
-              <span class="meta__lbl">piezas por caja</span>
-            </li>
-            <li>
-              <span class="meta__num">48h</span>
-              <span class="meta__lbl">de reposo</span>
-            </li>
-            <li>
-              <span class="meta__num">04</span>
-              <span class="meta__lbl">orígenes de cacao</span>
-            </li>
-            <li>
-              <span class="meta__num">100%</span>
-              <span class="meta__lbl">hecho a mano</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- LOGOS -->
-      <section class="logos" aria-label="Clientes">
-        <div class="logos__inner">
-          <span class="eyebrow logos__eyebrow">Servimos en</span>
-          <div class="logos__row">
-            <span class="logo-mark">CAFÉ&nbsp;NÓRDICO</span>
-            <span class="logo-mark">Hotel&nbsp;Aurora</span>
-            <span class="logo-mark">mesa·06</span>
-            <span class="logo-mark">lagrima</span>
-            <span class="logo-mark">PINOBA</span>
-            <span class="logo-mark">VEREDA</span>
-          </div>
-          <div class="logos__row">
-            <span class="logo-mark">OCHO&nbsp;CAFÉ</span>
-            <span class="logo-mark">Casa&nbsp;Vieja</span>
-            <span class="logo-mark">KRONA</span>
-            <span class="logo-mark">NORTE&nbsp;SUR</span>
-            <span class="logo-mark">Pasto</span>
-            <span class="logo-mark">LITORAL</span>
+            <!-- El candy3d de la categoría activa se monta aquí desde src/main.js -->
           </div>
         </div>
       </section>
 
-      <!-- PRODUCTOS -->
-      <section class="products" id="productos">
-        <div class="products__inner">
-          <header class="section-head">
-            <span class="eyebrow">Colección — Otoño</span>
-            <h2 class="section-title">
-              Tres líneas, una sola <span class="accent">lógica</span>.
-            </h2>
-            <p class="section-sub">
-              Trabajamos una matriz corta y la iteramos hasta el agotamiento.
-              Cada línea responde a un gesto, una temperatura, una textura.
-            </p>
-          </header>
+      <!-- Aquí se monta la sección de categoría activa -->
+      <div data-category-host></div>
 
-          <div class="product-grid">
-            <article class="product-card">
-              <div class="product-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 120 120" width="120" height="120">
-                  <defs>
-                    <linearGradient id="lg-tr" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#80ee64" />
-                      <stop offset="100%" stop-color="#09af58" />
-                    </linearGradient>
-                  </defs>
-                  <g fill="none" stroke="url(#lg-tr)" stroke-width="1.6">
-                    <path d="M60 22 L100 46 L100 86 L60 110 L20 86 L20 46 Z" />
-                    <path d="M60 22 L100 46 L60 70 L20 46 Z" opacity=".55" />
-                    <path d="M60 70 L100 46 M60 70 L20 46 M60 70 L60 110" opacity=".35" />
-                    <circle cx="60" cy="46" r="3" fill="#7fee64" stroke="none" />
-                  </g>
+      <footer class="footer" id="pedir">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="nav__brand" href="/tradicionales" aria-label="Dulce — inicio">
+              <span class="nav__logo" aria-hidden="true">
+                <svg viewBox="0 0 200 200" width="28" height="28" fill="currentColor">
+                  <use href="#brand-mark" />
                 </svg>
-              </div>
-              <h3 class="product-card__title">Trufas</h3>
-              <p class="product-card__desc">
-                Bochones de chocolate negro 72% con ganache de crema fresca,
-                terminados a mano en tres texturas distintas por partida.
-              </p>
-              <div class="product-card__foot">
-                <span class="tag">Single origin</span>
-                <span class="price">$ 24.000</span>
-              </div>
-            </article>
-
-            <article class="product-card product-card--lifted">
-              <div class="product-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 120 120" width="120" height="120">
-                  <defs>
-                    <linearGradient id="lg-mc" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#80ee64" />
-                      <stop offset="100%" stop-color="#09af58" />
-                    </linearGradient>
-                  </defs>
-                  <g fill="url(#lg-mc)">
-                    <path d="M20 70 L60 46 L100 70 L60 94 Z" opacity=".95" />
-                    <path d="M20 70 L20 78 L60 102 L60 94 Z" opacity=".75" />
-                    <path d="M100 70 L100 78 L60 102 L60 94 Z" opacity=".6" />
-                    <path d="M20 54 L60 30 L100 54 L60 78 Z" opacity=".9" />
-                    <path d="M20 54 L20 62 L60 86 L60 78 Z" opacity=".7" />
-                    <path d="M100 54 L100 62 L60 86 L60 78 Z" opacity=".5" />
-                    <path d="M20 38 L60 14 L100 38 L60 62 Z" opacity=".85" />
-                    <path d="M20 38 L20 46 L60 70 L60 62 Z" opacity=".65" />
-                    <path d="M100 38 L100 46 L60 70 L60 62 Z" opacity=".45" />
-                  </g>
-                </svg>
-              </div>
-              <h3 class="product-card__title">Macarons</h3>
-              <p class="product-card__desc">
-                Cascara crujiente y miga húmeda. Rellenos rotativos según
-                cosecha: pistacho, frambuesa, café de Chiapas, miso blanco.
-              </p>
-              <div class="product-card__foot">
-                <span class="tag">Cosecha</span>
-                <span class="price">$ 28.000</span>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 120 120" width="120" height="120">
-                  <defs>
-                    <linearGradient id="lg-bb" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#80ee64" />
-                      <stop offset="100%" stop-color="#09af58" />
-                    </linearGradient>
-                  </defs>
-                  <g fill="url(#lg-bb)">
-                    <path d="M22 88 L60 66 L98 88 L60 110 Z" opacity=".55" />
-                    <path d="M22 72 L60 50 L98 72 L60 94 Z" opacity=".75" />
-                    <path d="M22 56 L60 34 L98 56 L60 78 Z" opacity=".9" />
-                    <path d="M22 40 L60 18 L98 40 L60 62 Z" />
-                  </g>
-                  <g stroke="#0b3a18" stroke-width="0.6" fill="none" opacity=".5">
-                    <path d="M22 40 L60 62 L98 40" />
-                    <path d="M22 56 L60 78 L98 56" />
-                    <path d="M22 72 L60 94 L98 72" />
-                  </g>
-                </svg>
-              </div>
-              <h3 class="product-card__title">Bombones</h3>
-              <p class="product-card__desc">
-                Capas finas de chocolate templado sobre corazones líquidos.
-                Una geometría frágil que sostiene un secreto en su interior.
-              </p>
-              <div class="product-card__foot">
-                <span class="tag">Edición limitada</span>
-                <span class="price">$ 32.000</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROCESO / CODE WINDOW -->
-      <section class="process" id="proceso">
-        <div class="process__inner">
-          <header class="section-head section-head--split">
-            <div>
-              <span class="eyebrow">Proceso</span>
-              <h2 class="section-title">
-                Cada lote, una <span class="accent">receta versionada</span>.
-              </h2>
-            </div>
-            <p class="section-sub section-sub--right">
-              Documentamos cada batch como si fuera un despliegue. Temperatura,
-              humedad, peso, tiempo de reposo &mdash; todo queda en el log.
+              </span>
+              <span class="nav__wordmark">Dulce</span>
+            </a>
+            <p class="footer__desc">
+              Repostería de precisión. Hecho a mano en lotes pequeños, con
+              materias primas trazables.
             </p>
-          </header>
-
-          <div class="code-window" role="img" aria-label="Bloque de código: receta de trufas en JSON">
-            <div class="code-window__bar">
-              <span class="code-dot code-dot--red"></span>
-              <span class="code-dot code-dot--yellow"></span>
-              <span class="code-dot code-dot--green"></span>
-              <span class="code-window__title">~/dulce/recipes/trufas.batch-0247.json</span>
-            </div>
-            <pre class="code-window__body"><code><span class="c-com">// batch #0247 — temperado a 31.5°C</span>
-<span class="c-key">"recipe"</span>:  <span class="c-str">"trufas-negro"</span>,
-<span class="c-key">"origin"</span>:  <span class="c-str">"Chiapas, Ecuador, Madagascar"</span>,
-<span class="c-key">"weight"</span>:  <span class="c-num">14</span>,        <span class="c-com">// gramos por pieza</span>
-<span class="c-key">"rest"</span>:    <span class="c-num">48</span>,        <span class="c-com">// horas de reposo</span>
-
-<span class="c-key">"steps"</span>: [
-  <span class="c-str">"fundir"</span>     <span class="c-key">→</span> <span class="c-num">45°C</span>,
-  <span class="c-str">"temperar"</span>   <span class="c-key">→</span> <span class="c-num">31.5°C</span> ± <span class="c-num">0.2</span>,
-  <span class="c-str">"cristalizar"</span><span class="c-key">→</span> <span class="c-num">27°C</span>,
-  <span class="c-str">"bofear"</span>     <span class="c-key">→</span> <span class="c-num">3</span> capas,
-  <span class="c-str">"reposar"</span>    <span class="c-key">→</span> <span class="c-num">48h</span>,
-  <span class="c-str">"embalar"</span>    <span class="c-key">→</span> caja 12u
-],
-
-<span class="c-key">"yield"</span>:   <span class="c-num">98</span>,        <span class="c-com">// piezas aprobadas</span>
-<span class="c-key">"status"</span>:  <span class="c-tag">"running"</span></code></pre>
           </div>
 
-          <div class="process__metrics">
-            <div class="metric">
-              <span class="metric__num">31.5°C</span>
-              <span class="metric__lbl">curva de temperado</span>
-            </div>
-            <div class="metric">
-              <span class="metric__num">72%</span>
-              <span class="metric__lbl">mínimo de cacao</span>
-            </div>
-            <div class="metric">
-              <span class="metric__num">0</span>
-              <span class="metric__lbl">conservantes</span>
-            </div>
-            <div class="metric">
-              <span class="metric__num">12</span>
-              <span class="metric__lbl">controles por pieza</span>
-            </div>
+          <div class="footer__col">
+            <h4>Categorías</h4>
+            <ul role="list" data-footer-categorias>
+              <!-- Se hidrata desde /api/categorias -->
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h4>Contacto</h4>
+            <ul role="list">
+              <li><a href="mailto:hola@dulce.studio">hola@dulce.studio</a></li>
+              <li><a href="#">WhatsApp &middot; +57 311 555 0123</a></li>
+              <li><a href="#">Instagram &middot; @dulce.atelier</a></li>
+              <li><span>Calle 60 #4-22, Bogotá</span></li>
+            </ul>
           </div>
         </div>
-      </section>
 
-      <!-- MANIFIESTO -->
-      <section class="manifesto" id="manifiesto">
-        <div class="manifesto__inner">
-          <header class="section-head section-head--center">
-            <span class="eyebrow">Manifiesto</span>
-            <h2 class="section-title section-title--lg">
-              Hacemos <span class="accent">una sola cosa</span>,
-              <br />muy bien.
-            </h2>
-          </header>
-
-          <div class="manifesto__grid">
-            <article class="m-item">
-              <span class="m-item__num">01</span>
-              <h3 class="m-item__title">Origen trazable</h3>
-              <p class="m-item__desc">
-                Conocemos a cada productor. Pagamos sobre el precio de
-                mercado y publicamos la trazabilidad en cada caja.
-              </p>
-            </article>
-            <article class="m-item">
-              <span class="m-item__num">02</span>
-              <h3 class="m-item__title">Sin atajos</h3>
-              <p class="m-item__desc">
-                Nada de mantecas vegetales, emulsionantes ni aromas
-                artificiales. Lo que no podemos pronunciar, no lo usamos.
-              </p>
-            </article>
-            <article class="m-item">
-              <span class="m-item__num">03</span>
-              <h3 class="m-item__title">Tiempo lento</h3>
-              <p class="m-item__desc">
-                48 horas de reposo es un lujo. Lo pagamos porque
-                cada minuto extra se siente en la boca.
-              </p>
-            </article>
-            <article class="m-item">
-              <span class="m-item__num">04</span>
-              <h3 class="m-item__title">Hecho a mano</h3>
-              <p class="m-item__desc">
-                Ninguna pieza sale del taller sin haber pasado por
-                doce manos y dos revisiones visuales.
-              </p>
-            </article>
-          </div>
+        <div class="footer__bottom">
+          <span>© 2026 Dulce Atelier S.A.S.</span>
+          <span>Hecho con <span class="accent">precisión</span> en Bogotá.</span>
         </div>
-      </section>
-
-      <!-- MENU / PRICING (light section for breath) -->
-      <section class="menu" id="menu">
-        <div class="menu__inner">
-          <header class="section-head section-head--split">
-            <div>
-              <span class="eyebrow eyebrow--dark">Menú — Temporada</span>
-              <h2 class="section-title section-title--dark">
-                Caja <span class="accent--dark">mixta</span>, por encargo.
-              </h2>
-            </div>
-            <p class="section-sub section-sub--right section-sub--dark">
-              Cada caja se arma el mismo día de entrega. Pedidos con
-              72h de anticipación. Envíos en Bogotá, Medellín y CDMX.
-            </p>
-          </header>
-
-          <div class="menu__grid">
-            <article class="menu-card">
-              <header class="menu-card__head">
-                <h3 class="menu-card__title">Esencial</h3>
-                <span class="menu-card__price">$ 64.000</span>
-              </header>
-              <p class="menu-card__lead">Para conocer la casa.</p>
-              <ul class="menu-card__list" role="list">
-                <li>8 piezas surtidas</li>
-                <li>2 trufas &middot; 3 macarons &middot; 3 bombones</li>
-                <li>Caja kraft con sello</li>
-                <li>Tarjeta de origen</li>
-              </ul>
-              <a class="ghost ghost--dark" href="#pedir">Encargar</a>
-            </article>
-
-            <article class="menu-card menu-card--featured">
-              <header class="menu-card__head">
-                <span class="tag tag--dark">Más pedido</span>
-                <h3 class="menu-card__title">Atelier</h3>
-                <span class="menu-card__price">$ 128.000</span>
-              </header>
-              <p class="menu-card__lead">El equilibrio entre cantidad y rareza.</p>
-              <ul class="menu-card__list" role="list">
-                <li>16 piezas en dos capas</li>
-                <li>Incluye macarons de cosecha</li>
-                <li>Caja rígida con ventana</li>
-                <li>Maridaje sugerido</li>
-                <li>Envío refrigerado</li>
-              </ul>
-              <a class="pill" href="#pedir">
-                Encargar
-                <span aria-hidden="true">→</span>
-              </a>
-            </article>
-
-            <article class="menu-card">
-              <header class="menu-card__head">
-                <h3 class="menu-card__title black</h3>
-                <h3 class="menu-card__title">Privada</h3>
-                <span class="menu-card__price">a convenir</span>
-              </header>
-              <p class="menu-card__lead">Diseñamos una caja a tu medida.</p>
-              <ul class="menu-card__list" role="list">
-                <li>32 a 240 piezas</li>
-                <li>Selección de orígenes</li>
-                <li>Grabado y empaque corporativo</li>
-                <li>Asesoría 1:1 con el chocolatero</li>
-                <li>Entrega dedicada</li>
-              </ul>
-              <a class="ghost ghost--dark" href="#contacto">Hablar con el taller</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="cta" id="contacto">
-        <div class="cta__inner">
-          <h2 class="cta__title">
-            Listos para hornear tu <span class="accent">próxima caja</span>.
-          </h2>
-          <p class="cta__sub">
-            Escríbenos por WhatsApp o déjanos tu correo. Respondemos el mismo
-            día antes de las 18:00 hora local.
-          </p>
-          <form class="cta__form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Enviado ✓';">
-            <input
-              class="cta__input"
-              type="email"
-              required
-              placeholder="tu@correo.com"
-              aria-label="Tu correo"
-            />
-            <button class="pill pill--solid" type="submit">
-              Quiero mi caja
-              <span aria-hidden="true">→</span>
-            </button>
-          </form>
-        </div>
-      </section>
+      </footer>
     </main>
 
-    <footer class="footer" id="pedir">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <a class="nav__brand" href="#top" aria-label="Dulce — inicio">
-            <span class="nav__logo" aria-hidden="true">
-              <svg viewBox="0 0 32 32" width="24" height="24">
-                <use href="#brand-mark" />
-                <symbol id="brand-mark" viewBox="0 0 32 32">
-                  <path d="M6 6 L26 6 L26 26 L6 26 Z M6 6 L26 26 M26 6 L6 26" fill="none" stroke="#7fee64" stroke-width="2.5" />
-                  <circle cx="16" cy="16" r="3" fill="#7fee64" />
-                </symbol>
-              </svg>
-            </span>
-            <span class="nav__wordmark">Dulce</span>
-          </a>
-          <p class="footer__desc">
-            Repostería de precisión. Hecho a mano en lotes pequeños, con
-            materias primas trazables.
-          </p>
-        </div>
-
-        <div class="footer__col">
-          <h4>Tienda</h4>
-          <ul role="list">
-            <li><a href="#productos">Trufas</a></li>
-            <li><a href="#productos">Macarons</a></li>
-            <li><a href="#productos">Bombones</a></li>
-            <li><a href="#menu">Cajas mixtas</a></li>
-            <li><a href="#menu">Ediciones limitadas</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4>Taller</h4>
-          <ul role="list">
-            <li><a href="#manifiesto">Manifiesto</a></li>
-            <li><a href="#proceso">Proceso</a></li>
-            <li><a href="#contacto">Visitas</a></li>
-            <li><a href="#contacto">Prensa</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4>Contacto</h4>
-          <ul role="list">
-            <li><a href="mailto:hola@dulce.studio">hola@dulce.studio</a></li>
-            <li><a href="#">WhatsApp &middot; +57 311 555 0123</a></li>
-            <li><a href="#">Instagram &middot; @dulce.atelier</a></li>
-            <li><span>Calle 60 #4-22, Bogotá</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <span>© 2026 Dulce Atelier S.A.S.</span>
-        <span>Hecho con <span class="accent">precisión</span> en Bogotá.</span>
-      </div>
-    </footer>
-
-    <script src="scripts/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
