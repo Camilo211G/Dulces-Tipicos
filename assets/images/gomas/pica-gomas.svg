@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="320" height="320" role="img" aria-label="Pica Gomas">
+  <defs>
+    <radialGradient id="pg-body" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#ff86c4"/>
+      <stop offset="60%" stop-color="#ff2e93"/>
+      <stop offset="100%" stop-color="#7a0f3d"/>
+    </radialGradient>
+    <pattern id="pg-grain" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#fff" opacity=".35"/>
+      <circle cx="0" cy="0" r="0.5" fill="#1a0008" opacity=".7"/>
+      <circle cx="5" cy="4" r="0.6" fill="#ffea6a" opacity=".6"/>
+    </pattern>
+    <radialGradient id="pg-highlight" cx="35%" cy="28%">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".75"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="58" r="22" fill="url(#pg-body)"/>
+  <circle cx="32" cy="58" r="22" fill="url(#pg-grain)"/>
+  <ellipse cx="22" cy="48" rx="9" ry="5" fill="url(#pg-highlight)"/>
+  <circle cx="68" cy="44" r="16" fill="#39ff14"/>
+  <circle cx="68" cy="44" r="16" fill="url(#pg-grain)"/>
+  <ellipse cx="62" cy="38" rx="6" ry="3" fill="#fff" opacity=".55"/>
+  <circle cx="48" cy="28" r="2" fill="#ffea6a"/>
+  <circle cx="56" cy="76" r="2.4" fill="#39ff14"/>
+  <circle cx="22" cy="78" r="1.8" fill="#fff" opacity=".6"/>
+</svg>

@@ -1,0 +1,74 @@
+/**
+ * category-shapes.css
+ * ---------------------------------------------------------------
+ * Complementa styles/category.css (.candy3d__stage / candy3d-spin).
+ * Cada categoría reemplaza el spin genérico por una animación que
+ * refuerza su personalidad, sin tocar el mecanismo preserve-3d base.
+ * ---------------------------------------------------------------
+ */
+
+.candy3d__cube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+}
+
+/* 1) Tradicionales — giro lento y sobrio, como una olla en exhibición */
+.candy3d__stage--tradicionales {
+  animation: candy3d-spin 26s linear infinite;
+}
+
+/* 2) Picantes — parpadeo de calor + spin más rápido */
+.candy3d__stage--picantes {
+  animation: candy3d-flicker 2.4s ease-in-out infinite alternate,
+    candy3d-spin 18s linear infinite;
+}
+@keyframes candy3d-flicker {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 6px #ff450066);
+  }
+  100% {
+    filter: brightness(1.15) drop-shadow(0 0 16px #ff8c0099);
+  }
+}
+
+/* 3) Dulces — vaivén suave, como una bola de helado a punto de caer */
+.candy3d__stage--dulces {
+  animation: candy3d-bob 4.5s ease-in-out infinite;
+}
+@keyframes candy3d-bob {
+  0%,
+  100% {
+    transform: translateY(0px) rotateY(0deg) rotateX(-8deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(180deg) rotateX(-8deg);
+  }
+}
+
+/* 4) Ácidos — spin rápido y brilloso (más veloz que el cubo original) */
+.candy3d__stage--acidos {
+  animation: candy3d-spin 14s linear infinite;
+  filter: drop-shadow(0 0 14px #9d00ff66);
+}
+
+/* 5) Gomas — bamboleo elástico tipo gomita rebotando */
+.candy3d__stage--gomas {
+  animation: candy3d-wobble 3s ease-in-out infinite;
+}
+@keyframes candy3d-wobble {
+  0%,
+  100% {
+    transform: rotateZ(0deg) rotateY(0deg) scale(1);
+  }
+  25% {
+    transform: rotateZ(6deg) rotateY(90deg) scale(1.03);
+  }
+  50% {
+    transform: rotateZ(0deg) rotateY(180deg) scale(0.97);
+  }
+  75% {
+    transform: rotateZ(-6deg) rotateY(270deg) scale(1.03);
+  }
+}

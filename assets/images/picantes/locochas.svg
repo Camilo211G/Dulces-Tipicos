@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="320" height="320" role="img" aria-label="Locochas">
+  <defs>
+    <radialGradient id="lc-body" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#ff8a4a"/>
+      <stop offset="55%" stop-color="#c1121f"/>
+      <stop offset="100%" stop-color="#5e0a0e"/>
+    </radialGradient>
+    <radialGradient id="lc-liquid" cx="40%" cy="35%">
+      <stop offset="0%" stop-color="#ffef5e"/>
+      <stop offset="60%" stop-color="#ff6b1a"/>
+      <stop offset="100%" stop-color="#a40e1a"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="42" r="20" fill="url(#lc-body)"/>
+  <circle cx="32" cy="42" r="9" fill="url(#lc-liquid)" opacity=".95"/>
+  <circle cx="32" cy="42" r="9" fill="none" stroke="#3a0000" stroke-width="1.2" opacity=".7"/>
+  <ellipse cx="26" cy="35" rx="6" ry="3" fill="#ffd9b3" opacity=".7"/>
+  <circle cx="32" cy="42" r="1.5" fill="#3a0006"/>
+  <circle cx="68" cy="58" r="20" fill="url(#lc-body)"/>
+  <circle cx="68" cy="58" r="9" fill="url(#lc-liquid)" opacity=".95"/>
+  <circle cx="68" cy="58" r="9" fill="none" stroke="#3a0000" stroke-width="1.2" opacity=".7"/>
+  <ellipse cx="62" cy="51" rx="6" ry="3" fill="#ffd9b3" opacity=".7"/>
+  <circle cx="68" cy="58" r="1.5" fill="#3a0006"/>
+  <circle cx="50" cy="82" r="2" fill="#7a0d10" opacity=".7"/>
+  <circle cx="55" cy="20" r="1.5" fill="#c1121f" opacity=".65"/>
+</svg>

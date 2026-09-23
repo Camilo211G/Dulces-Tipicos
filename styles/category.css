@@ -1,0 +1,301 @@
+/* =========================================================
+   Dulce — categoría dinámica + nav activo + 3D de reemplazo
+   ========================================================= */
+
+/* --- nav: estado activo por link --- */
+.nav__links a {
+  position: relative;
+  padding: 4px 2px;
+}
+
+.nav__links a.is-active {
+  color: var(--color-phosphor-white);
+}
+
+.nav__links a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--cat-primary, var(--color-lime-pulse));
+  transition: background-color var(--motion);
+}
+
+/* --- contenedor donde se monta la categoría activa --- */
+[data-category-host] {
+  display: block;
+}
+
+/* =========================================================
+   category-page (plantilla única, 5 fuentes de datos)
+   ========================================================= */
+.category-page {
+  position: relative;
+  padding: 60px 0 100px;
+  color: var(--color-phosphor-white);
+}
+
+.category-page__inner {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-inline: var(--pad-x);
+}
+
+.category-page__head {
+  margin-bottom: 56px;
+  max-width: 720px;
+}
+
+.category-page__title {
+  font-family: var(--font-goga);
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.012em;
+  margin: 8px 0 16px;
+  font-weight: 500;
+}
+
+.category-page__title .muted {
+  color: var(--color-sage-60);
+}
+
+.category-page__desc {
+  color: var(--color-sage-60);
+  font-size: var(--t-b);
+  line-height: 1.55;
+  max-width: 60ch;
+}
+
+/* --- feature (dulce emblemático 3D) --- */
+.category-page__feature {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 40px;
+  border: 1px solid color-mix(in srgb, var(--cat-primary) 30%, var(--color-circuit-border));
+  border-radius: 12px;
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--cat-primary) 8%, transparent),
+      transparent 60%
+    ),
+    var(--color-ground-iron);
+  margin-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-page__feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 30%,
+    color-mix(in srgb, var(--cat-primary) 22%, transparent),
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.category-page__feature-3d {
+  position: relative;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+}
+
+.category-page__feature-label {
+  display: inline-block;
+  font-size: var(--t-cap);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cat-primary);
+  font-family: var(--font-mono);
+  margin-bottom: 12px;
+}
+
+.category-page__feature-title {
+  font-family: var(--font-goga);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+  margin: 0 0 12px;
+  color: var(--color-phosphor-white);
+}
+
+.category-page__feature-desc {
+  color: var(--color-sage-60);
+  margin: 0 0 16px;
+  max-width: 50ch;
+}
+
+.category-page__feature-pop {
+  font-family: var(--font-mono);
+  font-size: var(--t-cap);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cat-primary);
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--cat-primary) 40%, transparent);
+  border-radius: 4px;
+}
+
+/* --- grid de dulces 2D --- */
+.category-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 720px) {
+  .category-page__feature {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+  .category-page__feature-3d {
+    height: 200px;
+  }
+}
+
+/* =========================================================
+   candy-card
+   ========================================================= */
+.candy-card {
+  position: relative;
+  padding: 20px;
+  background: var(--color-carbon-veil);
+  border: 1px solid var(--color-phosphor-blue-black);
+  border-radius: 8px;
+  transition: border-color var(--motion), transform var(--motion);
+}
+
+.candy-card:hover {
+  border-color: color-mix(in srgb, var(--cat-primary) 50%, var(--color-circuit-border));
+  transform: translateY(-2px);
+}
+
+.candy-card__num {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-family: var(--font-mono);
+  font-size: var(--t-cap);
+  letter-spacing: 0.06em;
+  color: var(--color-deep-fern);
+}
+
+.candy-card__icon {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 8px 18px color-mix(in srgb, var(--accent, var(--cat-primary)) 25%, transparent));
+}
+
+.candy-card__icon svg,
+.candy-card__icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.candy-card__icon img {
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+.candy-card__title {
+  font-family: var(--font-goga);
+  font-size: var(--t-hsm);
+  line-height: 1.15;
+  margin: 0 0 8px;
+  color: var(--color-phosphor-white);
+  letter-spacing: -0.013em;
+}
+
+.candy-card__desc {
+  font-size: var(--t-bs);
+  color: var(--color-sage-60);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.candy-card--featured {
+  border-color: color-mix(in srgb, var(--cat-primary) 50%, var(--color-circuit-border));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--cat-primary) 12%, var(--color-carbon-veil)),
+    var(--color-carbon-veil) 70%
+  );
+}
+
+/* =========================================================
+   candy3d (reemplaza al cubo del hero)
+   ========================================================= */
+.candy3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  perspective: 900px;
+}
+
+.candy3d__stage {
+  width: var(--candy3d-size, 160px);
+  height: var(--candy3d-size, 160px);
+  position: relative;
+  transform-style: preserve-3d;
+  animation: candy3d-spin 22s linear infinite;
+}
+
+.candy3d:hover .candy3d__stage {
+  animation-play-state: paused;
+}
+
+.candy3d__cube,
+.candy3d__sphere,
+.candy3d__bar,
+.candy3d__bear {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.candy3d__face {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.candy3d[data-geometry="bear"] .candy3d__stage,
+.candy3d[data-geometry="sphere"] .candy3d__stage,
+.candy3d[data-geometry="bar"] .candy3d__stage,
+.candy3d[data-geometry="torus"] .candy3d__stage {
+  animation: candy3d-float 6s ease-in-out infinite;
+}
+
+@keyframes candy3d-spin {
+  0%   { transform: rotateY(0deg)   rotateX(-12deg); }
+  100% { transform: rotateY(360deg) rotateX(-12deg); }
+}
+
+@keyframes candy3d-float {
+  0%, 100% { transform: translateY(0) rotateY(0deg); }
+  50%      { transform: translateY(-14px) rotateY(20deg); }
+}
+
+/* =========================================================
+   hero — cuando contiene un candy3d (no el cubo)
+   ========================================================= */
+.hero__visual:has(.candy3d) .hero__halo {
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--cat-primary) 25%, transparent),
+    transparent 60%
+  );
+}

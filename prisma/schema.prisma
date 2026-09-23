@@ -1,0 +1,38 @@
+// Dulce — Prisma schema
+// MariaDB local, base de datos "dulces"
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Categoria {
+  id             Int     @id @default(autoincrement())
+  slug           String  @unique
+  nombre         String
+  eyebrow        String
+  descripcion    String  @db.Text
+  colorPrimary   String
+  colorSecondary String
+  colorAccent    String
+  orden          Int     @default(0)
+  dulces         Dulce[]
+}
+
+model Dulce {
+  id            Int       @id @default(autoincrement())
+  popularidad   Int       @unique
+  nombre        String
+  ingredientes  String    @db.Text
+  geometria3d   String?
+  esEmblematico Boolean   @default(false)
+  imageSlug     String?
+  categoria     Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId   Int
+
+  @@index([categoriaId])
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="320" height="320" role="img" aria-label="Tamborines">
+  <defs>
+    <radialGradient id="tb-disc1" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#ff8a4a"/>
+      <stop offset="60%" stop-color="#c1121f"/>
+      <stop offset="100%" stop-color="#4a0507"/>
+    </radialGradient>
+    <radialGradient id="tb-disc2" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#ff9d6a"/>
+      <stop offset="60%" stop-color="#d12a1f"/>
+      <stop offset="100%" stop-color="#5a0808"/>
+    </radialGradient>
+    <pattern id="tb-grain" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#fff" opacity=".22"/>
+      <circle cx="3" cy="2.5" r="0.4" fill="#1a0000" opacity=".5"/>
+    </pattern>
+  </defs>
+  <ellipse cx="34" cy="60" rx="22" ry="22" fill="url(#tb-disc1)"/>
+  <ellipse cx="34" cy="60" rx="22" ry="22" fill="url(#tb-grain)"/>
+  <ellipse cx="28" cy="54" rx="9" ry="5" fill="#ffb98a" opacity=".55"/>
+  <circle cx="34" cy="60" r="4" fill="#7a0d10"/>
+  <ellipse cx="66" cy="46" rx="22" ry="22" fill="url(#tb-disc2)"/>
+  <ellipse cx="66" cy="46" rx="22" ry="22" fill="url(#tb-grain)"/>
+  <ellipse cx="60" cy="40" rx="9" ry="5" fill="#ffc89a" opacity=".55"/>
+  <circle cx="66" cy="46" r="4" fill="#7a0d10"/>
+  <ellipse cx="50" cy="78" rx="22" ry="22" fill="#a40e1a"/>
+  <ellipse cx="50" cy="78" rx="22" ry="22" fill="url(#tb-grain)"/>
+  <ellipse cx="44" cy="72" rx="9" ry="5" fill="#e07454" opacity=".55"/>
+  <circle cx="50" cy="78" r="4" fill="#4a0507"/>
+</svg>
