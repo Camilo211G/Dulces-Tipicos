@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position: absolute; width: 0; height: 0; overflow: hidden" aria-hidden="true">
+  <symbol id="brand-mark" viewBox="0 0 200 200">
+    <defs>
+      <mask id="candyStripeMask">
+        <rect width="200" height="200" fill="white" />
+        <path d="M 82 65 L 74 135" stroke="black" stroke-width="7" stroke-linecap="round" />
+        <path d="M 100 62 L 92 138" stroke="black" stroke-width="7" stroke-linecap="round" />
+        <path d="M 118 65 L 110 135" stroke="black" stroke-width="7" stroke-linecap="round" />
+      </mask>
+    </defs>
+
+    <g transform="rotate(-15 100 100)">
+      <g mask="url(#candyStripeMask)">
+        <ellipse cx="100" cy="100" rx="42" ry="32" />
+      </g>
+
+      <path d="M 58 100 C 48 94 32 78 20 74 C 18 92 18 108 20 126 C 32 122 48 106 58 100 Z" />
+      <path class="logo-highlight" d="M 23 79 C 34 92 42 98 52 100" stroke-width="3" stroke-linecap="round" fill="none" />
+      <path d="M 142 100 C 152 94 168 78 180 74 C 182 92 182 108 180 126 C 168 122 152 106 142 100 Z" />
+      <path class="logo-highlight" d="M 177 79 C 166 92 158 98 148 100" stroke-width="3" stroke-linecap="round" fill="none" />
+      <ellipse cx="58" cy="100" rx="3.5" ry="8" />
+      <ellipse cx="142" cy="100" rx="3.5" ry="8" />
+    </g>
+  </symbol>
+</svg>

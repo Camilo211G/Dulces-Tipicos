@@ -72,3 +72,19 @@
     transform: rotateZ(-6deg) rotateY(270deg) scale(1.03);
   }
 }
+
+/* ---------------------------------------------------------------
+   Accesibilidad: si la persona pidió menos movimiento, las
+   piezas 3D se quedan quietas (giro, vaivén, parpadeo, bamboleo).
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .candy3d__stage,
+  .candy3d__stage--tradicionales,
+  .candy3d__stage--picantes,
+  .candy3d__stage--dulces,
+  .candy3d__stage--acidos,
+  .candy3d__stage--gomas {
+    animation: none;
+    filter: none;
+  }
+}

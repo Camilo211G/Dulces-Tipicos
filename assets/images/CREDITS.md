@@ -2,15 +2,15 @@
 
 Imágenes © de sus respectivos creadores. Licencias Creative Commons.
 
-- **obleas-con-cajeta** (tradicional/obleas-con-cajeta.jpg) — "Obleas con Cajeta" → autor: [Drab Makyo](https://www.flickr.com/photos/71503020@N00) · [fuente](https://www.flickr.com/photos/71503020@N00/16008851223) · CC by 2.0 (https://creativecommons.org/licenses/by/2.0/)
-- **alegrias** (tradicional/alegrias.jpg) — "Amaranto alegria" → autor: [JulioRFA](https://www.flickr.com/photos/49944150@N06) · [fuente](https://www.flickr.com/photos/49944150@N06/5557280049) · CC by 2.0 (https://creativecommons.org/licenses/by/2.0/)
-- **palanquetas** (tradicional/palanquetas.jpg) — "Palanquetas Mexican" → autor: [Gaby Maldonado](https://www.flickr.com/photos/23772539@N00) · [fuente](https://www.flickr.com/photos/23772539@N00/387517156) · CC by-nc-nd 2.0 (https://creativecommons.org/licenses/by-nc-nd/2.0/)
-- **borrachitos** (tradicional/borrachitos.jpg) — "Borrachitos Mexican candy" → autor: [Sergiozif](https://commons.wikimedia.org/w/index.php?title=User:Sergiozif&action=edit&redlink=1) · [fuente](https://commons.wikimedia.org/w/index.php?curid=18331015) · CC by-sa 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
-- **ate-membrillo-guayaba** (tradicional/ate-membrillo-guayaba.jpg) — "Ate membrillo guava" → autor: [ProtoplasmaKid](https://commons.wikimedia.org/wiki/User:ProtoplasmaKid) · [fuente](https://commons.wikimedia.org/w/index.php?curid=48263482) · CC by-sa 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-- **jamoncillo** (tradicional/jamoncillo.jpg) — "Jamoncillo leche" → autor: [FotoyMensaje](https://www.flickr.com/photos/53247857@N07) · [fuente](https://www.flickr.com/photos/53247857@N07/6175733153) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
-- **merengues-mexicanos** (tradicional/merengues-mexicanos.jpg) — "Merengue Mexican" → autor: [Ted's photos - Stand by Ukraine](https://www.flickr.com/photos/90955804@N04) · [fuente](https://www.flickr.com/photos/90955804@N04/53493312868) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
-- **tarugos** (tradicional/tarugos.jpg) — "Tarugo tamarindo" → autor: [LALO VAZQUEZ](https://www.flickr.com/photos/30993853@N06) · [fuente](https://www.flickr.com/photos/30993853@N06/3242182901) · CC by-sa 2.0 (https://creativecommons.org/licenses/by-sa/2.0/)
-- **macarrones** (tradicional/macarrones.jpg) — "Macaron cajeta" → autor: [djwtwo](https://www.flickr.com/photos/40761412@N00) · [fuente](https://www.flickr.com/photos/40761412@N00/5194309000) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
+- **obleas-con-cajeta** (tradicionales/obleas-con-cajeta.jpg) — "Obleas con Cajeta" → autor: [Drab Makyo](https://www.flickr.com/photos/71503020@N00) · [fuente](https://www.flickr.com/photos/71503020@N00/16008851223) · CC by 2.0 (https://creativecommons.org/licenses/by/2.0/)
+- **alegrias** (tradicionales/alegrias.jpg) — "Amaranto alegria" → autor: [JulioRFA](https://www.flickr.com/photos/49944150@N06) · [fuente](https://www.flickr.com/photos/49944150@N06/5557280049) · CC by 2.0 (https://creativecommons.org/licenses/by/2.0/)
+- **palanquetas** (tradicionales/palanquetas.jpg) — "Palanquetas Mexican" → autor: [Gaby Maldonado](https://www.flickr.com/photos/23772539@N00) · [fuente](https://www.flickr.com/photos/23772539@N00/387517156) · CC by-nc-nd 2.0 (https://creativecommons.org/licenses/by-nc-nd/2.0/)
+- **borrachitos** (tradicionales/borrachitos.jpg) — "Borrachitos Mexican candy" → autor: [Sergiozif](https://commons.wikimedia.org/w/index.php?title=User:Sergiozif&action=edit&redlink=1) · [fuente](https://commons.wikimedia.org/w/index.php?curid=18331015) · CC by-sa 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
+- **ate-membrillo-guayaba** (tradicionales/ate-membrillo-guayaba.jpg) — "Ate membrillo guava" → autor: [ProtoplasmaKid](https://commons.wikimedia.org/wiki/User:ProtoplasmaKid) · [fuente](https://commons.wikimedia.org/w/index.php?curid=48263482) · CC by-sa 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+- **jamoncillo** (tradicionales/jamoncillo.jpg) — "Jamoncillo leche" → autor: [FotoyMensaje](https://www.flickr.com/photos/53247857@N07) · [fuente](https://www.flickr.com/photos/53247857@N07/6175733153) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
+- **merengues-mexicanos** (tradicionales/merengues-mexicanos.jpg) — "Merengue Mexican" → autor: [Ted's photos - Stand by Ukraine](https://www.flickr.com/photos/90955804@N04) · [fuente](https://www.flickr.com/photos/90955804@N04/53493312868) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
+- **tarugos** (tradicionales/tarugos.jpg) — "Tarugo tamarindo" → autor: [LALO VAZQUEZ](https://www.flickr.com/photos/30993853@N06) · [fuente](https://www.flickr.com/photos/30993853@N06/3242182901) · CC by-sa 2.0 (https://creativecommons.org/licenses/by-sa/2.0/)
+- **macarrones** (tradicionales/macarrones.jpg) — "Macaron cajeta" → autor: [djwtwo](https://www.flickr.com/photos/40761412@N00) · [fuente](https://www.flickr.com/photos/40761412@N00/5194309000) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
 - **pulparindo** (picantes/pulparindo.jpg) — "Pulparindo" → autor: [Felixe](https://www.flickr.com/photos/44136594@N00) · [fuente](https://www.flickr.com/photos/44136594@N00/5835340486) · CC by-sa 2.0 (https://creativecommons.org/licenses/by-sa/2.0/)
 - **pelon-pelo-rico** (picantes/pelon-pelo-rico.jpg) — "Pelon Pelo Rico" → autor: [klyonrad](https://www.flickr.com/photos/16679552@N00) · [fuente](https://www.flickr.com/photos/16679552@N00/5343512350) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
 - **rockaleta** (picantes/rockaleta.jpg) — "Rockaleta" → autor: [andriick](https://www.flickr.com/photos/146958237@N03) · [fuente](https://www.flickr.com/photos/146958237@N03/48785094697) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
@@ -34,3 +34,17 @@ Imágenes © de sus respectivos creadores. Licencias Creative Commons.
 - **panditas** (gomas/panditas.jpg) — "Panditas gummy" → autor: [Cupto](https://www.flickr.com/photos/12717907@N00) · [fuente](https://www.flickr.com/photos/12717907@N00/1261863021) · CC by-nc-sa 2.0 (https://creativecommons.org/licenses/by-nc-sa/2.0/)
 - **bubbaloo** (gomas/bubbaloo.jpg) — "Bubbaloo" → autor: [ruffin_ready](https://www.flickr.com/photos/51668926@N00) · [fuente](https://www.flickr.com/photos/51668926@N00/473920965) · CC by 2.0 (https://creativecommons.org/licenses/by/2.0/)
 - **chicles-canels** (gomas/chicles-canels.jpg) — "Chicles Canel" → autor: [shawncampbell](https://www.flickr.com/photos/59077136@N00) · [fuente](https://www.flickr.com/photos/59077136@N00/3347987784) · CC by 2.0 (https://creativecommons.org/licenses/by/2.0/)
+
+## Ilustraciones propias del proyecto
+
+- **locochas** (picantes/locochas.svg) — "Locochas" → ilustración vectorial creada por el equipo del proyecto
+- **pica-fresa** (picantes/pica-fresa.svg) — "Pica Fresa" → ilustración vectorial creada por el equipo del proyecto
+- **tamborines** (picantes/tamborines.svg) — "Tamborines" → ilustración vectorial creada por el equipo del proyecto
+- **winis** (dulces/winis.svg) — "Winis" → ilustración vectorial creada por el equipo del proyecto
+- **pecositas** (acidos/pecositas.svg) — "Pecositas" → ilustración vectorial creada por el equipo del proyecto
+- **pica-gomas** (gomas/pica-gomas.svg) — "Pica Gomas" → ilustración vectorial creada por el equipo del proyecto
+- **chicle-motita** (gomas/chicle-motita.svg) — "Chicle Motita" → ilustración vectorial creada por el equipo del proyecto
+
+## Atribución pendiente de verificación
+
+- **cocadas** (tradicionales/cocadas.jpg) — "Cocadas" → fotografía de un puesto de mercado; el equipo tiene pendiente verificar la autoría y la licencia de origen

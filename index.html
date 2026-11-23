@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,12 +8,13 @@
       name="description"
       content="Catálogo curado de dulces mexicanos tradicionales, picantes, chocolatosos, ácidos y gomas. 40 piezas, 5 paletas, 1 sola lógica."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@400;500&family=Fira+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' ws: wss:; base-uri 'self'; form-action 'none'; object-src 'none'"
     />
+    <meta name="theme-color" content="#0a8a3a" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/styles/fonts.css" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/category.css" />
     <link rel="stylesheet" href="/styles/category-shapes.css" />
@@ -70,7 +71,7 @@
 
     <header class="nav" id="nav">
       <div class="nav__inner">
-        <a class="nav__brand" href="/tradicionales" aria-label="Dulce — inicio">
+        <a class="nav__brand" href="/" aria-label="Dulce — inicio">
           <span class="nav__logo" aria-hidden="true">
             <svg viewBox="0 0 200 200" width="32" height="32" fill="currentColor">
               <use href="#brand-mark" />
@@ -79,14 +80,27 @@
           <span class="nav__wordmark">Dulce</span>
         </a>
 
-        <nav class="nav__links" aria-label="Categorías">
+        <nav class="nav__links" id="nav-menu" aria-label="Categorías">
           <!-- Se hidrata desde /api/categorias -->
         </nav>
 
         <div class="nav__actions">
-          <a class="pill" href="#pedir">
-            Pedir ahora
-            <span aria-hidden="true">→</span>
+          <button
+            class="nav__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            aria-label="Abrir el menú de categorías"
+            data-nav-toggle
+          >
+            <span class="nav__toggle-bar" aria-hidden="true"></span>
+            <span class="nav__toggle-bar" aria-hidden="true"></span>
+            <span class="nav__toggle-bar" aria-hidden="true"></span>
+          </button>
+
+          <a class="pill" href="#catalogo">
+            Ver el catálogo
+            <span aria-hidden="true">↓</span>
           </a>
         </div>
       </div>
@@ -114,13 +128,16 @@
         </div>
       </section>
 
-      <!-- Aquí se monta la sección de categoría activa -->
-      <div data-category-host></div>
+      <!-- Avisos para lectores de pantalla (cambio de categoría) -->
+      <p class="sr-only" role="status" aria-live="polite" data-route-status></p>
 
-      <footer class="footer" id="pedir">
+      <!-- Aquí se monta la sección de categoría activa -->
+      <div data-category-host id="catalogo" tabindex="-1"></div>
+
+      <footer class="footer" id="contacto">
         <div class="footer__inner">
           <div class="footer__brand">
-            <a class="nav__brand" href="/tradicionales" aria-label="Dulce — inicio">
+            <a class="nav__brand" href="/" aria-label="Dulce — inicio">
               <span class="nav__logo" aria-hidden="true">
                 <svg viewBox="0 0 200 200" width="28" height="28" fill="currentColor">
                   <use href="#brand-mark" />
@@ -129,9 +146,19 @@
               <span class="nav__wordmark">Dulce</span>
             </a>
             <p class="footer__desc">
-              Repostería de precisión. Hecho a mano en lotes pequeños, con
-              materias primas trazables.
+              Catálogo informativo de dulces mexicanos. Proyecto académico sin
+              fines de lucro: no vendemos productos, no recabamos datos
+              personales y no usamos cookies de seguimiento.
             </p>
+            <button
+              class="text-size"
+              type="button"
+              aria-pressed="false"
+              data-text-size
+            >
+              <span class="text-size__icon" aria-hidden="true">A+</span>
+              <span data-text-size-label>Texto grande</span>
+            </button>
           </div>
 
           <div class="footer__col">
@@ -142,19 +169,27 @@
           </div>
 
           <div class="footer__col">
-            <h4>Contacto</h4>
+            <h4>Legal</h4>
             <ul role="list">
-              <li><a href="mailto:hola@dulce.studio">hola@dulce.studio</a></li>
-              <li><a href="#">WhatsApp &middot; +57 311 555 0123</a></li>
-              <li><a href="#">Instagram &middot; @dulce.atelier</a></li>
-              <li><span>Calle 60 #4-22, Bogotá</span></li>
+              <li><a href="/privacidad.html">Aviso de privacidad</a></li>
+              <li><a href="/creditos.html">Créditos y licencias</a></li>
+              <li><a href="mailto:hola@dulce.studio">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h4>Proyecto</h4>
+            <ul role="list">
+              <li><span>Universidad Politécnica de García</span></li>
+              <li><span>García, Nuevo León, México</span></li>
+              <li><span>Tecnologías de Información en Innovación Digital</span></li>
             </ul>
           </div>
         </div>
 
         <div class="footer__bottom">
-          <span>© 2026 Dulce Atelier S.A.S.</span>
-          <span>Hecho con <span class="accent">precisión</span> en Bogotá.</span>
+          <span>© <span data-year>2026</span> Proyecto académico Dulce</span>
+          <span>Catálogo informativo · versión 1.0</span>
         </div>
       </footer>
     </main>
