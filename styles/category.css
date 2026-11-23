@@ -26,6 +26,8 @@
 /* --- contenedor donde se monta la categoría activa --- */
 [data-category-host] {
   display: block;
+  /* el ancla "Ver el catálogo" no queda bajo la barra fija */
+  scroll-margin-top: 84px;
 }
 
 /* =========================================================
@@ -35,6 +37,13 @@
   position: relative;
   padding: 60px 0 100px;
   color: var(--color-phosphor-white);
+  /* Tinta de la categoría para texto pequeño: el color puro no alcanza
+     4.5:1 sobre los fondos oscuros (picantes 2.85:1, acidos 3.28:1). */
+  --cat-ink: color-mix(
+    in srgb,
+    var(--cat-primary) 55%,
+    var(--color-phosphor-white)
+  );
 }
 
 .category-page__inner {
@@ -62,6 +71,10 @@
   color: var(--color-sage-60);
 }
 
+.category-page__head .eyebrow {
+  color: var(--cat-ink);
+}
+
 .category-page__desc {
   color: var(--color-sage-60);
   font-size: var(--t-b);
@@ -69,11 +82,14 @@
   max-width: 60ch;
 }
 
-/* --- feature (dulce emblemático 3D) --- */
+/* --- feature (dulce emblemático + video de la categoría) --- */
 .category-page__feature {
   display: grid;
   grid-template-columns: minmax(260px, 360px) 1fr;
-  gap: 56px;
+  /* fila 1: miniatura + info · fila 2: player (0fr → colapsado) */
+  grid-template-rows: auto 0fr;
+  column-gap: 56px;
+  row-gap: 0;
   align-items: center;
   padding: 40px;
   border: 1px solid color-mix(in srgb, var(--cat-primary) 30%, var(--color-circuit-border));
@@ -87,6 +103,12 @@
   margin-bottom: 80px;
   position: relative;
   overflow: hidden;
+  transition: grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* el feature se estira hacia abajo para reproducir el video */
+.category-page__feature.is-video-open {
+  grid-template-rows: auto 1fr;
 }
 
 .category-page__feature::before {
@@ -102,12 +124,156 @@
 }
 
 .category-page__feature-3d {
+  grid-column: 1;
+  grid-row: 1;
   position: relative;
-  height: 240px;
+  height: auto;
+  min-height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
   perspective: 900px;
+}
+
+/* --- miniatura del video + círculo play --- */
+.category-page__video-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--cat-primary) 45%, var(--color-circuit-border));
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-carbon-veil);
+  transition: border-color var(--motion), box-shadow var(--motion);
+}
+
+.category-page__video-thumb:hover {
+  border-color: var(--cat-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cat-primary) 14%, transparent);
+}
+
+.category-page__video-thumb:focus-visible {
+  outline: 2px solid var(--cat-primary);
+  outline-offset: 3px;
+}
+
+.category-page__video-poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.72) saturate(0.92);
+  transition: transform var(--motion), filter var(--motion);
+}
+
+.category-page__video-thumb:hover .category-page__video-poster {
+  transform: scale(1.05);
+  filter: brightness(0.9) saturate(1.05);
+}
+
+.category-page__video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: var(--color-void-black);
+  background: color-mix(in srgb, var(--cat-primary) 88%, #ffffff);
+  box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--cat-primary) 85%, transparent),
+    0 0 0 2px color-mix(in srgb, var(--color-phosphor-white) 40%, transparent);
+  transition: transform var(--motion), background-color var(--motion);
+}
+
+.category-page__video-icon-play {
+  margin-left: 4px;
+}
+
+.category-page__video-icon-close {
+  display: none;
+}
+
+.category-page__video-thumb:hover .category-page__video-play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.category-page__video-thumb.is-open .category-page__video-icon-play {
+  display: none;
+}
+
+.category-page__video-thumb.is-open .category-page__video-icon-close {
+  display: block;
+}
+
+.category-page__video-badge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--color-void-black) 74%, transparent);
+  font-family: var(--font-mono);
+  font-size: var(--t-cap);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-phosphor-white);
+}
+
+.category-page__video-badge-dur {
+  color: var(--color-sage-60);
+}
+
+/* --- panel de video (fila 2, a todo el ancho) --- */
+.category-page__feature-video {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  /* stretch: la fila colapsada (0fr) recorta el panel a 0 sin asomar */
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.category-page__feature-video-inner {
+  padding-top: 32px;
+}
+
+.category-page__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--color-void-black);
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--cat-primary) 30%, var(--color-circuit-border));
+}
+
+/* Texto alternativo del video (visible, no sólo aria) */
+.category-page__video-desc {
+  margin: 12px 0 0;
+  color: var(--color-sage-60);
+  font-size: var(--t-bs);
+  line-height: 1.55;
+  max-width: 78ch;
+}
+
+.category-page__video-desc strong {
+  color: var(--color-phosphor-white);
+  font-weight: 500;
+}
+
+.category-page__feature-info {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .category-page__feature-label {
@@ -115,7 +281,7 @@
   font-size: var(--t-cap);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--cat-primary);
+  color: var(--cat-ink);
   font-family: var(--font-mono);
   margin-bottom: 12px;
 }
@@ -135,14 +301,24 @@
 }
 
 .category-page__feature-pop {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: var(--t-cap);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--cat-primary);
+  color: var(--cat-ink);
   padding: 4px 10px;
   border: 1px solid color-mix(in srgb, var(--cat-primary) 40%, transparent);
   border-radius: 4px;
+}
+
+.category-page__feature-note {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--t-cap);
+  letter-spacing: 0.03em;
+  color: var(--color-sage-60);
 }
 
 /* --- grid de dulces 2D --- */
@@ -155,11 +331,36 @@
 @media (max-width: 720px) {
   .category-page__feature {
     grid-template-columns: 1fr;
-    gap: 24px;
+    /* en una columna la miniatura y la info se apilan y el video va abajo */
+    grid-template-rows: auto auto 0fr;
+    column-gap: 24px;
+    row-gap: 0;
     padding: 24px;
   }
+  .category-page__feature.is-video-open {
+    grid-template-rows: auto auto 1fr;
+  }
   .category-page__feature-3d {
-    height: 200px;
+    min-height: 200px;
+  }
+  .category-page__feature-info {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 24px;
+  }
+  .category-page__feature-video {
+    grid-row: 3;
+  }
+  .category-page__feature-video-inner {
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-page__feature,
+  .category-page__video-poster,
+  .category-page__video-play {
+    transition: none;
   }
 }
 
@@ -187,7 +388,7 @@
   font-family: var(--font-mono);
   font-size: var(--t-cap);
   letter-spacing: 0.06em;
-  color: var(--color-deep-fern);
+  color: var(--color-sage-60);
 }
 
 .candy-card__icon {

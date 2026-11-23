@@ -4,12 +4,14 @@
 
 import { api } from "./lib/api.js";
 import { createRouter } from "./lib/router.js";
-import { renderNavLinks, setActiveNavLink } from "./components/nav.js";
+import { renderNavLinks, setActiveNavLink, setupNavToggle } from "./components/nav.js";
 import {
   renderFooterCategorias,
   setActiveFooterCategoria,
 } from "./components/footer.js";
 import { mountCategory } from "./components/category-page.js";
+import { setupTextSize } from "./lib/text-size.js";
+import { textoSobre } from "./lib/color.js";
 
 const els = {
   categoryContainer: () => document.querySelector("[data-category-host]"),
@@ -17,6 +19,9 @@ const els = {
 };
 
 let cacheCategorias = [];
+let primeraCarga = true;
+
+const status = () => document.querySelector("[data-route-status]");
 
 function applyCategoryToDocument(categoria) {
   document.documentElement.style.setProperty(
@@ -30,6 +35,11 @@ function applyCategoryToDocument(categoria) {
   document.documentElement.style.setProperty(
     "--cat-accent",
     categoria.colorAccent
+  );
+  // Texto legible sobre el color de la categoría (botones, píldoras)
+  document.documentElement.style.setProperty(
+    "--cat-on",
+    textoSobre(categoria.colorPrimary)
   );
   document.title = `${categoria.nombre} — Dulce`;
 }
@@ -54,7 +64,25 @@ async function loadCategory(slug) {
     },
   });
 
+  anunciarCategoria(categoria);
+
   window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+}
+
+/* Avisa a los lectores de pantalla del cambio de categoría y mueve el foco
+   al título, para que la navegación con teclado no se pierda. */
+function anunciarCategoria(categoria) {
+  if (primeraCarga) {
+    primeraCarga = false;
+    return;
+  }
+  const live = status();
+  if (live) live.textContent = `Categoría actual: ${categoria.nombre}`;
+  const titulo = document.querySelector(".category-page__title");
+  if (titulo) {
+    titulo.setAttribute("tabindex", "-1");
+    titulo.focus({ preventScroll: true });
+  }
 }
 
 async function bootstrap() {
@@ -76,6 +104,12 @@ async function bootstrap() {
         loadCategory(slug).catch((err) => console.error("[load]", err));
       },
     });
+
+    setupNavToggle();
+    setupTextSize(document.querySelector("[data-text-size]"));
+
+    const anio = document.querySelector("[data-year]");
+    if (anio) anio.textContent = String(new Date().getFullYear());
 
     window.__router = router;
     router.start();
